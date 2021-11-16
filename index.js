@@ -33,7 +33,7 @@ setInterval(async()=>{
         }
         console.log(`Buy: $ ${buy}`)
 
-        const qBTC=(0.00017)//Quando btc bater 100k mudar para 0.00010
+        const qBTC=(0.00017)//Quando btc bater 100k mudar para 0.00010 dps 0.001 em 1kk
         const pbuyng=(qBTC*buy)
 
         console.log(`Checking balance for purchase $ ${pbuyng}`)
