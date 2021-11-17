@@ -19,7 +19,7 @@ setInterval(async()=>{
 
     console.log('Checking balance for trade (USDT>10.01)...')
 
-    if(wUSDT>10.01){
+    if(wUSDT>10.01){//mudar para 100.01 qunado o btc bater 100k para gerar margem de saque
 
         console.log('Available trade balance, taking market depth...')
 
