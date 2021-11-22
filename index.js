@@ -17,9 +17,9 @@ setInterval(async()=>{
 
     const wUSDT=(coins.find(c=>c.asset==='USDT').free)
 
-    console.log('Checking balance for trade (USDT>10.01)...')
+    console.log('Checking balance for trade (USDT>100.1)...')
 
-    if(wUSDT>10.01){//mudar para 100.01 qunado o btc bater 100k para gerar margem de saque
+    if(wUSDT>100.1){
 
         console.log('Available trade balance, taking market depth...')
 
@@ -33,10 +33,10 @@ setInterval(async()=>{
         }
         console.log(`Buy: $ ${buy}`)
 
-        const qBTC=(0.00017)//Quando btc bater 100k mudar para 0.00010 dps 0.001 em 1kk
-        const pbuyng=(qBTC*buy)
+        const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))//buy 10% of usdt sald in btc
+        const pbuyng=(((qBTC*buy).toFixed(2)))
 
-        console.log(`Checking balance for purchase $ ${pbuyng}`)
+        console.log(`Checking balance for purchase $ ${pbuyng} (${qBTC} BTC)`)
 
         if(wUSDT>pbuyng){
         console.log(`Avaliable balance`)
@@ -64,6 +64,6 @@ setInterval(async()=>{
         }
     }
     else{
-        console.log(`(Balance = ${wUSDT} USDT). No balance available for trade (10.01 USDT), starting again...`)
+        console.log(`(Balance = ${wUSDT} USDT). No balance available for trade (100.1 USDT), starting again...`)
     }
 }, process.env.CRAWLER_INTERVAL)
