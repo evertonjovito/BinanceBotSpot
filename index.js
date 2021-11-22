@@ -33,7 +33,7 @@ setInterval(async()=>{
         }
         console.log(`Buy: $ ${buy}`)
 
-        const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))//buy 10% of usdt sald in btc
+        const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))
         const pbuyng=(((qBTC*buy).toFixed(2)))
 
         console.log(`Checking balance for purchase $ ${pbuyng} (${qBTC} BTC)`)
