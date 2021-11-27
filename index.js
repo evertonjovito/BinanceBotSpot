@@ -36,7 +36,7 @@ setInterval(async()=>{
         const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))
         const pbuyng=(((qBTC*sell).toFixed(2)))
 
-        console.log(`Checking balance for purchase ($USDT>${pbuyng}) (${qBTC} BTC)`)
+        console.log(`Checking balance for purchase (USDT>${pbuyng}) (${qBTC} BTC)`)
 
         if(wUSDT>pbuyng){
         console.log(`Avaliable balance`)
