@@ -27,16 +27,16 @@ setInterval(async()=>{
         if(result.asks && result.asks.length){
         sell=(parseFloat(result.asks[0][0]).toFixed(2))
         }
-        console.log(`Sell: $ ${sell}`)
+        console.log(`Sell: $${sell}`)
         if(result.bids&&result.bids.length){
         buy=(parseFloat(result.bids[0][0]).toFixed(2))
         }
-        console.log(`Buy: $ ${buy}`)
+        console.log(`Buy: $${buy}`)
 
         const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))
-        const pbuyng=(((qBTC*buy).toFixed(2)))
+        const pbuyng=(((qBTC*sell).toFixed(2)))
 
-        console.log(`Checking balance for purchase $ ${pbuyng} (${qBTC} BTC)`)
+        console.log(`Checking balance for purchase ($USDT>${pbuyng}) (${qBTC} BTC)`)
 
         if(wUSDT>pbuyng){
         console.log(`Avaliable balance`)
@@ -44,16 +44,16 @@ setInterval(async()=>{
 
         console.log(`Shopping qBTC: ${qBTC}`)
 
-        const buyOrder=await api.newOrder(symbol, qBTC)
+        const buyOrder=await api.newOrder(symbol,qBTC)
         console.log(`OrderId: ${buyOrder.orderId}`)
         console.log(`Status: ${buyOrder.status}`);
 
         console.log('Posting a limit sell order...')
 
         const price=parseFloat(sell*profitability).toFixed(2)
-        const sellOrder=await api.newOrder(symbol,(qBTC*0.999).toFixed(5),price,'SELL','LIMIT')
-        console.log(`Amount qBTC: ${(qBTC*0.999).toFixed(5)}`)
-        console.log(`Price: $ ${price}`)
+        const sellOrder=await api.newOrder(symbol,qBTC,price,'SELL','LIMIT')
+        console.log(`Amount qBTC: ${qBTC}`)
+        console.log(`Price: $${price}`)
         console.log(`OrderId: ${sellOrder.orderId}`)
         console.log(`Status: ${sellOrder.status}`)
         
