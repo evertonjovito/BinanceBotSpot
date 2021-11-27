@@ -36,10 +36,8 @@ setInterval(async()=>{
         const qBTC=((((wUSDT/sell)*0.1).toFixed(5)))
         const pbuyng=(((qBTC*sell).toFixed(2)))
 
-        console.log(`Checking balance for purchase (USDT>${pbuyng}) (${qBTC} BTC)`)
+        console.log(`Purchase (${pbuyng} USDT) (${qBTC} BTC)`)
 
-        if(wUSDT>pbuyng){
-        console.log(`Avaliable balance`)
         console.log('Posting a market buy order...')
 
         console.log(`Shopping qBTC: ${qBTC}`)
@@ -58,10 +56,7 @@ setInterval(async()=>{
         console.log(`Status: ${sellOrder.status}`)
         
         console.log('Finished cycle')
-        }
-        else{
-        console.log(`No USDT balance to buy the amount of ${qBTC} BTC`)
-        }
+        
     }
     else{
         console.log(`(Balance = ${wUSDT} USDT). No balance available for trade (100.1 USDT), starting again...`)
