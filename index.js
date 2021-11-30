@@ -1,8 +1,8 @@
 const api=require('./api')
-
+//
 const symbol=process.env.SYMBOL
 const profitability=process.env.PROFITABILITY
-
+//
 setInterval(async()=>{
     //
     console.log('Starting cycle...')
